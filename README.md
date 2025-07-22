@@ -4,7 +4,7 @@ A modern personal resume website built with **Next.js**, **TypeScript**, **Tailw
 
 ## 🌐 Live Preview
 
-[🔗 View Website](https://your-domain.com)
+on going 
 
 ## 📚 Sections
 

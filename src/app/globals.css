@@ -9,7 +9,6 @@
   --color-text-main: #E2E8F0;       /* ตัวอักษรหลัก */
   --color-text-heading: #F8FAFC;    /* หัวข้อใหญ่ */ 
   --color-border: #334155;          /* เส้นขอบ card/ */
-
   --color-warning: #FACC15;         /* ใช้กับ icon/alert หรือ badge  */
 }
 

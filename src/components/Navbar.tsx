@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import "../i18n/i18n";
+import Image from 'next/image';
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -24,7 +25,7 @@ export default function Navbar() {
       <div className="container mx-auto  px-4 sm:px-6 lg:px-8  flex items-center justify-between">
         {/* Logo Section */}
         <div className="text-xl font-bold text-gray-800">
-            <img src="/navbar-logo.png" height={200} width={100} />
+            <Image src="/logo/navbar-logo.png" height={40} width={100} alt="TSG Logo" priority />
         </div>
 
         {/* Link section */}
@@ -36,14 +37,6 @@ export default function Navbar() {
                 className="hover:text-[var(--color-accent)] transition-colors"
               >
                 {t("Home")}
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="hover:hover:text-[var(--color-accent)] transition-colors"
-              >
-                {t("Services")}
               </a>
             </li>
             <li>

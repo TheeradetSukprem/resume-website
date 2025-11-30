@@ -69,6 +69,9 @@ export default function HeroSection() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Button
               variant="contained"
+              component="a"
+              href="/files/theeradet-sukprem-cv.pdf"
+              download
               className="!bg-[#6C4CF1] !text-white hover:!bg-[#5b40cc]"
               sx={{
                 paddingX: 3,
@@ -85,6 +88,9 @@ export default function HeroSection() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Button
               variant="contained"
+              component="a"
+              href="/files/theeradet-sukprem-resume.pdf"
+              download
               className="!bg-[#6C4CF1] !text-white hover:!bg-[#5b40cc]"
               sx={{
                 paddingX: 3,

@@ -1,11 +1,32 @@
 "use client";
 
-import Image from "next/image";
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiVuedotjs, 
+  SiTailwindcss, 
+  SiJavascript, 
+  SiTypescript,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiGo,
+  SiMysql,
+  SiMariadb,
+  SiPostgresql,
+  SiSqlite,
+  SiMongodb,
+  SiRedis
+} from "react-icons/si";
 
 export default function TechStackSection() {
   return (
-    <section className="relative py-20 bg-gray-50 text-gray-800">
-      <div className="container mx-auto px-6">
+    <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/40 text-gray-800 overflow-hidden">
+      {/* Background Effects */}
+      <div className="pointer-events-none absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 left-0 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-accent)] mb-4">
             Tech Stack
@@ -34,7 +55,7 @@ export default function TechStackSection() {
               <div>
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Library</h4>
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <Image src="/icons/react-icon.svg" alt="React" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(77%) sepia(97%) saturate(1270%) hue-rotate(169deg) brightness(103%) contrast(101%)'}} />
+                  <SiReact className="text-2xl text-[#61DAFB]" />
                   <span className="text-gray-800 font-medium">React</span>
                 </div>
               </div>
@@ -44,11 +65,11 @@ export default function TechStackSection() {
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Framework</h4>
                 <div className="space-y-2">
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Image src="/icons/nextdotjs.svg" alt="Next.js" width={20} height={20} />
+                    <SiNextdotjs className="text-2xl text-[#000000]" />
                     <span className="text-gray-800 font-medium">Next.js</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Image src="/icons/vuedotjs.svg" alt="Vue.js" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(66%) sepia(47%) saturate(627%) hue-rotate(86deg) brightness(95%) contrast(89%)'}} />
+                    <SiVuedotjs className="text-2xl text-[#4FC08D]" />
                     <span className="text-gray-800 font-medium">Vue.js v2/v3</span>
                   </div>
                 </div>
@@ -58,7 +79,7 @@ export default function TechStackSection() {
               <div>
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Styling</h4>
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <Image src="/icons/tailwindcss.svg" alt="Tailwind CSS" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(60%) sepia(83%) saturate(2307%) hue-rotate(164deg) brightness(97%) contrast(91%)'}} />
+                  <SiTailwindcss className="text-2xl text-[#06B6D4]" />
                   <span className="text-gray-800 font-medium">Tailwind CSS</span>
                 </div>
               </div>
@@ -68,15 +89,11 @@ export default function TechStackSection() {
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Language</h4>
                 <div className="space-y-2">
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <div className="w-5 h-5 bg-yellow-400 rounded flex items-center justify-center">
-                      <span className="text-xs font-bold text-black">JS</span>
-                    </div>
+                    <SiJavascript className="text-2xl text-[#F7DF1E]" />
                     <span className="text-gray-800 font-medium">JavaScript</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
-                      <span className="text-xs font-bold text-black">TS</span>
-                    </div>
+                    <SiTypescript className="text-2xl text-[#3178C6]" />
                     <span className="text-gray-800 font-medium">TypeScript</span>
                   </div>
                 </div>
@@ -99,7 +116,7 @@ export default function TechStackSection() {
               <div>
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Runtime</h4>
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <Image src="/icons/nodedotjs.svg" alt="Node.js" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(41%) sepia(98%) saturate(1207%) hue-rotate(86deg) brightness(95%) contrast(89%)'}} />
+                  <SiNodedotjs className="text-2xl text-[#339933]" />
                   <span className="text-gray-800 font-medium">Node.js</span>
                 </div>
               </div>
@@ -108,7 +125,7 @@ export default function TechStackSection() {
               <div>
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Framework</h4>
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <Image src="/icons/express.svg" alt="Express.js" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(40%) sepia(15%) saturate(22%) hue-rotate(317deg) brightness(94%) contrast(86%)'}} />
+                  <SiExpress className="text-2xl text-[#000000]" />
                   <span className="text-gray-800 font-medium">Express.js</span>
                 </div>
               </div>
@@ -118,11 +135,11 @@ export default function TechStackSection() {
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Language</h4>
                 <div className="space-y-2">
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Image src="/icons/python.svg" alt="Python" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(35%) sepia(98%) saturate(1207%) hue-rotate(200deg) brightness(94%) contrast(97%)'}} />
+                    <SiPython className="text-2xl text-[#3776AB]" />
                     <span className="text-gray-800 font-medium">Python</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Image src="/icons/go.svg" alt="Go" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(60%) sepia(83%) saturate(2307%) hue-rotate(164deg) brightness(97%) contrast(91%)'}} />
+                    <SiGo className="text-2xl text-[#00ADD8]" />
                     <span className="text-gray-800 font-medium">Go</span>
                   </div>
                 </div>
@@ -146,19 +163,19 @@ export default function TechStackSection() {
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">SQL</h4>
                 <div className="space-y-2">
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Image src="/icons/mysql-icon.svg" alt="MySQL" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(70%) sepia(42%) saturate(1370%) hue-rotate(15deg) brightness(101%) contrast(107%)'}} />
+                    <SiMysql className="text-2xl text-[#4479A1]" />
                     <span className="text-gray-800 font-medium">MySQL</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Image src="/icons/mariadb.svg" alt="MariaDB" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(20%) sepia(89%) saturate(1426%) hue-rotate(346deg) brightness(89%) contrast(114%)'}} />
+                    <SiMariadb className="text-2xl text-[#003545]" />
                     <span className="text-gray-800 font-medium">MariaDB</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Image src="/icons/postgresql.svg" alt="PostgreSQL" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(40%) sepia(98%) saturate(1207%) hue-rotate(200deg) brightness(94%) contrast(97%)'}} />
+                    <SiPostgresql className="text-2xl text-[#4169E1]" />
                     <span className="text-gray-800 font-medium">PostgreSQL</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Image src="/icons/sqlite.svg" alt="SQLite" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(45%) sepia(15%) saturate(22%) hue-rotate(317deg) brightness(94%) contrast(86%)'}} />
+                    <SiSqlite className="text-2xl text-[#003B57]" />
                     <span className="text-gray-800 font-medium">SQLite</span>
                   </div>
                 </div>
@@ -169,13 +186,11 @@ export default function TechStackSection() {
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">NoSQL</h4>
                 <div className="space-y-2">
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Image src="/icons/mongodb.svg" alt="MongoDB" width={20} height={20} style={{filter: 'brightness(0) saturate(100%) invert(53%) sepia(47%) saturate(627%) hue-rotate(86deg) brightness(95%) contrast(89%)'}} />
+                    <SiMongodb className="text-2xl text-[#47A248]" />
                     <span className="text-gray-800 font-medium">MongoDB</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <div className="w-5 h-5 bg-red-600 rounded flex items-center justify-center">
-                      <span className="text-xs font-bold text-black">R</span>
-                    </div>
+                    <SiRedis className="text-2xl text-[#DC382D]" />
                     <span className="text-gray-800 font-medium">Redis</span>
                   </div>
                 </div>

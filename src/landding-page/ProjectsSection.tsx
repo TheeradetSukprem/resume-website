@@ -1,78 +1,111 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import "../i18n/i18n";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function ProjectsSection() {
+  const { t, i18n, ready } = useTranslation();
   const [selectedProject, setSelectedProject] = useState(1);
+  
+  // Wait for i18n to be ready
+  if (!ready) {
+    return null;
+  }
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
-      title: "Project 1",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/default.jpg",
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      title: t("projects.items.oms.title"),
+      description: t("projects.items.oms.description"),
+      image: "/kdr/KDR.jpg",
+      technologies: ["React.js", "Tailwind CSS", "Chart.js", "REST API"],
       features: [
-        "Responsive design with modern UI/UX",
-        "Real-time data synchronization",
-        "Advanced filtering and search functionality",
-        "Mobile-first approach"
+        t("projects.items.oms.features.0"),
+        t("projects.items.oms.features.1"),
+        t("projects.items.oms.features.2")
       ]
     },
     {
       id: 2,
-      title: "Project 2",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/default.jpg",
-      technologies: ["Vue.js", "Node.js", "MongoDB", "Express"],
+      title: t("projects.items.driverTask.title"),
+      description: t("projects.items.driverTask.description"),
+      image: "/kdr/KDR.jpg",
+      images: [
+        "/kdr/KDR.jpg",
+        "/kdr/mobile/mobile-app-1.png",
+        "/kdr/mobile/mobile-app-2.png",
+        "/kdr/mobile/mobile-app-3.png",
+        "/kdr/mobile/mobile-app-4.png"
+      ],
+      useSwiper: true,
+      technologies: ["LIFF (LINE Front-end Framework)", "Figma", "UI/UX Design"],
       features: [
-        "RESTful API integration",
-        "User authentication system",
-        "Dashboard with analytics",
-        "Progressive Web App features"
+        t("projects.items.driverTask.features.0"),
+        t("projects.items.driverTask.features.1"),
+        t("projects.items.driverTask.features.2")
       ]
     },
     {
       id: 3,
-      title: "Project 3",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident.",
-      image: "/default.jpg",
-      technologies: ["Python", "FastAPI", "PostgreSQL", "Docker"],
+      title: t("projects.items.itAsset.title"),
+      description: t("projects.items.itAsset.description"),
+      image: "/kdr/KDR.jpg",
+      technologies: ["Next.js", "TypeScript", "MySQL", "Prisma"],
       features: [
-        "Microservices architecture",
-        "Automated testing and CI/CD",
-        "High-performance data processing",
-        "Scalable cloud deployment"
+        t("projects.items.itAsset.features.0"),
+        t("projects.items.itAsset.features.1"),
+        t("projects.items.itAsset.features.2")
       ]
     },
     {
       id: 4,
-      title: "Project 4",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit.",
+      title: t("projects.items.pmis.title"),
+      description: t("projects.items.pmis.description"),
       image: "/default.jpg",
-      technologies: ["Go", "Redis", "MySQL", "Docker"],
+      technologies: ["Golang", "Nuxt.js", "MySQL", "python"],
       features: [
-        "High-performance backend services",
-        "Real-time WebSocket connections",
-        "Caching optimization strategies",
-        "Load balancing and monitoring"
+        t("projects.items.pmis.features.0"),
+        t("projects.items.pmis.features.1"),
+        t("projects.items.pmis.features.2")
+      ]
+    },
+    {
+      id: 5,
+      title: t("projects.items.mula.title"),
+      description: t("projects.items.mula.description"),
+      image: "/default.jpg",
+      technologies: ["Golang", "Nuxt.js", "MySQL"],
+      features: [
+        t("projects.items.mula.features.0"),
+        t("projects.items.mula.features.1")
       ]
     }
-  ];
+  ], [t, i18n.language]);
 
   const currentProject = projects.find(p => p.id === selectedProject) || projects[0];
 
   return (
-    <section className="relative min-h-screen py-20 bg-gradient-to-br from-gray-50 to-white text-gray-800">
-      <div className="container mx-auto px-6">
+    <section className="relative min-h-screen py-20 bg-gradient-to-br from-white via-purple-50/20 to-pink-50/30 text-gray-800 overflow-hidden">
+      {/* Background Effects */}
+      <div className="pointer-events-none absolute top-20 right-10 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute bottom-20 left-10 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-200/10 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-accent)] mb-4">
-            Projects
+            {t("projects.title")}
           </h2>
           <div className="h-1 w-24 bg-cyan-400 rounded-full mx-auto mb-6" />
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Showcase of my latest work and creative solutions
+            {t("projects.subtitle")}
           </p>
         </div>
 
@@ -125,19 +158,50 @@ export default function ProjectsSection() {
               </div>
 
               <div className="relative overflow-hidden rounded-xl">
-                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <Image
-                    src={currentProject.image}
-                    alt={currentProject.title}
-                    width={600}
-                    height={340}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                {currentProject.useSwiper && currentProject.images ? (
+                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200">
+                    <Swiper
+                      modules={[Navigation, Pagination, Autoplay]}
+                      spaceBetween={10}
+                      slidesPerView={1}
+                      navigation
+                      pagination={{ clickable: true }}
+                      autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                      }}
+                      className="h-full w-full rounded-xl"
+                    >
+                      {currentProject.images.map((img, index) => (
+                        <SwiperSlide key={index}>
+                          <div className="relative w-full h-full">
+                            <Image
+                              src={img}
+                              alt={`${currentProject.title} - Slide ${index + 1}`}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 70vw"
+                              className={index === 0 ? "object-cover" : "object-contain"}
+                            />
+                          </div>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                ) : (
+                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                    <Image
+                      src={currentProject.image}
+                      alt={currentProject.title}
+                      width={600}
+                      height={340}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Technologies Used</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">{t("projects.technologiesUsed")}</h3>
                 <div className="flex flex-wrap gap-2">
                   {currentProject.technologies.map((tech, index) => (
                     <span
@@ -151,7 +215,7 @@ export default function ProjectsSection() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Features</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">{t("projects.keyFeatures")}</h3>
                 <ul className="space-y-2">
                   {currentProject.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -160,15 +224,6 @@ export default function ProjectsSection() {
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              <div className="flex gap-4 pt-6">
-                <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-xl text-white font-semibold transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
-                  View Live Demo
-                </button>
-                <button className="px-6 py-3 bg-gray-100 hover:bg-gray-200 border border-gray-300 hover:border-gray-400 rounded-xl text-gray-700 font-semibold transition-all duration-300">
-                  View Source Code
-                </button>
               </div>
             </div>
           </div>

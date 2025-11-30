@@ -1,5 +1,94 @@
 {
   "Home": "Home",
   "About": "About",
-  "Portfolio": "Portfolio"
+  "Portfolio": "Portfolio",
+  "Contact": "Contact",
+  "hero": {
+    "greeting": "Hello, my name is",
+    "title": "Full Stack Developer",
+    "description": "\"Hi, I'm Gang. I turn complex problems into simple, scalable code. As a Full Stack Developer, I specialize in modern web technologies (Go, TypeScript, React) and bridge the gap between development and data insights.\n\nI value structured code and high-quality results. My long-term goal is to specialize in System Architecture, designing platforms that balance performance with practical execution.\"",
+    "followMe": "Follow me",
+    "downloadCV": "Download CV",
+    "downloadResume": "Download Resume"
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "subtitle": "Technologies I work with to build amazing digital experiences",
+    "frontend": {
+      "title": "Frontend",
+      "subtitle": "User Interface & Experience",
+      "library": "Library",
+      "framework": "Framework",
+      "styling": "Styling",
+      "language": "Language"
+    },
+    "backend": {
+      "title": "Backend",
+      "subtitle": "Server & API Development",
+      "runtime": "Runtime",
+      "framework": "Framework",
+      "language": "Language"
+    },
+    "database": {
+      "title": "Database",
+      "subtitle": "Data Storage & Management",
+      "sql": "SQL",
+      "nosql": "NoSQL"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Showcase of my latest work and creative solutions",
+    "technologiesUsed": "Technologies Used",
+    "keyFeatures": "Key Features",
+    "items": {
+      "oms": {
+        "title": "Order Management System (OMS)",
+        "description": "A responsive dashboard for managing orders and visualizing real-time data using Chart.js.",
+        "features": [
+          "Built a responsive dashboard integrated with ERP APIs.",
+          "Visualized real-time data for better decision making.",
+          "Optimized user workflow for order tracking."
+        ]
+      },
+      "pmis": {
+        "title": "Port Management System (PMIS)",
+        "description": "A comprehensive ship docking and toll collection system developed for Map Ta Phut Port.",
+        "features": [
+          "Managed complex queries for high-performance reporting.",
+          "Handled ship docking schedules and toll fee calculations.",
+          "Designed scalable architecture for port operations."
+        ]
+      },
+      "itAsset": {
+        "title": "IT Asset Borrow-Return System",
+        "description": "A full-stack application for tracking company equipment with a borrow-return system.",
+        "features": [
+          "End-to-end management of IT asset inventory.",
+          "Automated tracking of borrow and return status.",
+          "Secure database implementation with MySQL."
+        ]
+      },
+      "driverTask": {
+        "title": "Driver Task LINE Mini App",
+        "description": "A mobile-first application designed for driver trip management and task tracking.",
+        "features": [
+          "Designed Mobile-first UI/UX for ease of use on the go.",
+          "Real-time task tracking for drivers.",
+          "Seamless integration with LINE platform."
+        ]
+      },
+      "mula": {
+        "title": "MULA",
+        "description": "A system for managing course schedules and grades of students",
+        "features": [
+          "Manage course schedules and grades of students",
+          "Manage teacher and course information"
+        ]
+      }
+    }
+  },
+  "footer": {
+    "rightsReserved": "All rights reserved."
+  }
 }

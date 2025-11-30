@@ -11,14 +11,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function ProjectsSection() {
-  const { t, i18n, ready } = useTranslation();
+  const { t, ready } = useTranslation();
   const [selectedProject, setSelectedProject] = useState(1);
   
-  // Wait for i18n to be ready
-  if (!ready) {
-    return null;
-  }
-
   const projects = useMemo(() => [
     {
       id: 1,
@@ -87,7 +82,12 @@ export default function ProjectsSection() {
         t("projects.items.mula.features.1")
       ]
     }
-  ], [t, i18n.language]);
+  ], [t]);
+
+  // Wait for i18n to be ready
+  if (!ready) {
+    return null;
+  }
 
   const currentProject = projects.find(p => p.id === selectedProject) || projects[0];
 

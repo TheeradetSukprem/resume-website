@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@mui/material";
-import { Facebook, Instagram, Twitter, LinkedIn, GitHub } from "@mui/icons-material";
+import { Facebook, LinkedIn, GitHub } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import "../i18n/i18n";
 import Image from "next/image";

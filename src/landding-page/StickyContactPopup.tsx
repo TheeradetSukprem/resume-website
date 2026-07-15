@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Facebook, GitHub, LinkedIn, KeyboardArrowUp } from "@mui/icons-material";
+import { KeyboardArrowUp } from "@mui/icons-material";
+import { SiFacebook, SiGithub, SiLinkedin } from "react-icons/si";
 
 export default function StickyContactPopup() {
   const [showContactPopup, setShowContactPopup] = useState(false);
@@ -33,7 +34,7 @@ export default function StickyContactPopup() {
             className="w-12 h-12 rounded-lg bg-blue-600 hover:bg-blue-700 flex items-center justify-center transition-colors group"
             aria-label="Facebook"
           >
-            <Facebook className="text-white text-xl group-hover:scale-110 transition-transform" />
+            <SiFacebook className="text-white text-xl group-hover:scale-110 transition-transform" />
           </a>
           
           {/* GitHub */}
@@ -42,7 +43,7 @@ export default function StickyContactPopup() {
             className="w-12 h-12 rounded-lg bg-gray-800 hover:bg-gray-900 flex items-center justify-center transition-colors group"
             aria-label="GitHub"
           >
-            <GitHub className="text-white text-xl group-hover:scale-110 transition-transform" />
+            <SiGithub className="text-white text-xl group-hover:scale-110 transition-transform" />
           </a>
           
           {/* LinkedIn */}
@@ -51,7 +52,7 @@ export default function StickyContactPopup() {
             className="w-12 h-12 rounded-lg bg-blue-700 hover:bg-blue-800 flex items-center justify-center transition-colors group"
             aria-label="LinkedIn"
           >
-            <LinkedIn className="text-white text-xl group-hover:scale-110 transition-transform" />
+            <SiLinkedin className="text-white text-xl group-hover:scale-110 transition-transform" />
           </a>
           
           {/* Scroll to Top Button */}

@@ -1,18 +1,41 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import "../i18n/i18n";
 import Image from 'next/image';
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/lib/gsap";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
   const [mounted, setMounted] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useGSAP(
+    () => {
+      if (!mounted || !navRef.current) return;
+
+      if (prefersReducedMotion) {
+        gsap.set(navRef.current, { opacity: 1, y: 0 });
+        return;
+      }
+
+      gsap.fromTo(
+        navRef.current,
+        { opacity: 0, y: -24 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+      );
+    },
+    { scope: navRef, dependencies: [mounted, prefersReducedMotion] }
+  );
 
   if (!mounted) {
     return null;
@@ -21,7 +44,7 @@ export default function Navbar() {
   const currentLanguage = i18n.language;
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav ref={navRef} className="bg-white shadow-md">
       <div className="container mx-auto  px-4 sm:px-6 lg:px-8  flex items-center justify-between">
         {/* Logo Section */}
         <div className="text-xl font-bold text-gray-800">
@@ -33,32 +56,32 @@ export default function Navbar() {
           <ul className="flex items-center space-x-6 lg:space-x-8 text-gray-600 font-medium gap-8">
             <li>
               <a
-                href="#"
-                className="hover:text-[var(--color-accent)] transition-colors"
+                href="#home"
+                className="nav-link hover:text-[var(--color-accent)] transition-colors"
               >
                 {t("Home")}
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className="hover:hover:text-[var(--color-accent)] transition-colors"
+                href="#about"
+                className="nav-link hover:text-[var(--color-accent)] transition-colors"
               >
                 {t("About")}
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className="hover:hover:text-[var(--color-accent)] transition-colors"
+                href="#portfolio"
+                className="nav-link hover:text-[var(--color-accent)] transition-colors"
               >
                 {t("Portfolio")}
               </a>
             </li>
             <li>
               <a
-                href="#"
-               className="hover:hover:text-[var(--color-accent)] transition-colors"
+                href="#contact"
+               className="nav-link hover:text-[var(--color-accent)] transition-colors"
               >
                 {t("Contact")}
               </a>

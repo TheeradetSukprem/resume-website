@@ -1,14 +1,18 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from "react-i18next";
 import "../i18n/i18n";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const FooterSection = () => {
   const { t } = useTranslation();
-  
+  const footerRef = useRef<HTMLElement>(null);
+
+  useScrollReveal(footerRef, { variant: "fadeUp", start: "top 90%" });
+
   return (
-    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-t border-gray-700/50 py-12 overflow-hidden">
+    <footer id="contact" ref={footerRef} className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-t border-gray-700/50 py-12 overflow-hidden">
       {/* Background Effects */}
       <div className="pointer-events-none absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
       <div className="pointer-events-none absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />

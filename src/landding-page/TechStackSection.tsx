@@ -1,31 +1,50 @@
 "use client";
 
-import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiVuedotjs, 
-  SiTailwindcss, 
-  SiJavascript, 
+import { useRef } from "react";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiVuedotjs,
+  SiTailwindcss,
+  SiJavascript,
   SiTypescript,
   SiNodedotjs,
   SiExpress,
+  SiFastify,
   SiPython,
   SiGo,
+  SiApachekafka,
+  SiZod,
+  SiPino,
+  SiJest,
+  SiDocker,
   SiMysql,
   SiMariadb,
   SiPostgresql,
   SiSqlite,
   SiMongodb,
-  SiRedis
+  SiRedis,
+  SiPrisma,
+  SiClickhouse
 } from "react-icons/si";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function TechStackSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useScrollReveal(sectionRef, {
+    variant: "staggerIn",
+    selector: ".tech-card",
+    stagger: 0.15,
+    start: "top 75%",
+  });
+
   return (
-    <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/40 text-gray-800 overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/40 text-gray-800 overflow-hidden">
       {/* Background Effects */}
       <div className="pointer-events-none absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-0 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-accent)] mb-4">
@@ -39,9 +58,9 @@ export default function TechStackSection() {
 
         {/* Skills Chart */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          
+
           {/* Frontend */}
-          <div className="bg-white shadow-lg border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
+          <div className="tech-card bg-white shadow-lg border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
             <div className="text-center mb-6">
               <div className="w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                 <span className="text-xl font-bold text-white">FE</span>
@@ -102,7 +121,7 @@ export default function TechStackSection() {
           </div>
 
           {/* Backend */}
-          <div className="bg-white shadow-lg border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
+          <div className="tech-card bg-white shadow-lg border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
             <div className="text-center mb-6">
               <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                 <span className="text-xl font-bold text-white">BE</span>
@@ -124,9 +143,15 @@ export default function TechStackSection() {
               {/* Framework */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Framework</h4>
-                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <SiExpress className="text-2xl text-[#000000]" />
-                  <span className="text-gray-800 font-medium">Express.js</span>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiExpress className="text-2xl text-[#000000]" />
+                    <span className="text-gray-800 font-medium">Express.js</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiFastify className="text-2xl text-[#000000]" />
+                    <span className="text-gray-800 font-medium">Fastify</span>
+                  </div>
                 </div>
               </div>
 
@@ -144,11 +169,43 @@ export default function TechStackSection() {
                   </div>
                 </div>
               </div>
+
+              {/* Messaging */}
+              <div>
+                <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Messaging</h4>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <SiApachekafka className="text-2xl text-[#231F20]" />
+                  <span className="text-gray-800 font-medium">Kafka (KafkaJS)</span>
+                </div>
+              </div>
+
+              {/* Tooling */}
+              <div>
+                <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Tooling</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiZod className="text-2xl text-[#3E67B1]" />
+                    <span className="text-gray-800 font-medium">Zod</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiPino className="text-2xl text-[#000000]" />
+                    <span className="text-gray-800 font-medium">Pino</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiJest className="text-2xl text-[#C21325]" />
+                    <span className="text-gray-800 font-medium">Jest</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiDocker className="text-2xl text-[#2496ED]" />
+                    <span className="text-gray-800 font-medium">Docker</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Database */}
-          <div className="bg-white shadow-lg border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
+          <div className="tech-card bg-white shadow-lg border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
             <div className="text-center mb-6">
               <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                 <span className="text-xl font-bold text-white">DB</span>
@@ -193,6 +250,24 @@ export default function TechStackSection() {
                     <SiRedis className="text-2xl text-[#DC382D]" />
                     <span className="text-gray-800 font-medium">Redis</span>
                   </div>
+                </div>
+              </div>
+
+              {/* ORM */}
+              <div>
+                <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">ORM</h4>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <SiPrisma className="text-2xl text-[#2D3748]" />
+                  <span className="text-gray-800 font-medium">Prisma</span>
+                </div>
+              </div>
+
+              {/* Analytics */}
+              <div>
+                <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Analytics</h4>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <SiClickhouse className="text-2xl text-[#FFCC01]" />
+                  <span className="text-gray-800 font-medium">ClickHouse</span>
                 </div>
               </div>
             </div>

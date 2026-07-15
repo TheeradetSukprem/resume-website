@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "../i18n/i18n";
 import Image from "next/image";
@@ -9,11 +9,17 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/lib/gsap";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 export default function ProjectsSection() {
   const { t, ready } = useTranslation();
   const [selectedProject, setSelectedProject] = useState(1);
-  
+  const sectionRef = useRef<HTMLElement>(null);
+  const detailRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   const projects = useMemo(() => [
     {
       id: 1,
@@ -84,6 +90,56 @@ export default function ProjectsSection() {
     }
   ], [t]);
 
+  useGSAP(
+    () => {
+      if (!ready || !sectionRef.current) return;
+
+      if (prefersReducedMotion) {
+        gsap.set([".projects-heading", ".project-list-item", detailRef.current].filter(Boolean), {
+          opacity: 1,
+          y: 0,
+        });
+        return;
+      }
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      tl.fromTo(".projects-heading", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" })
+        .fromTo(
+          ".project-list-item",
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.12 },
+          "-=0.3"
+        )
+        .fromTo(
+          detailRef.current,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          "-=0.4"
+        );
+    },
+    { scope: sectionRef, dependencies: [ready, prefersReducedMotion] }
+  );
+
+  useGSAP(
+    () => {
+      if (!ready || !detailRef.current || prefersReducedMotion) return;
+
+      gsap.fromTo(
+        detailRef.current,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power1.out" }
+      );
+    },
+    { scope: detailRef, dependencies: [selectedProject], revertOnUpdate: true }
+  );
+
   // Wait for i18n to be ready
   if (!ready) {
     return null;
@@ -92,14 +148,14 @@ export default function ProjectsSection() {
   const currentProject = projects.find(p => p.id === selectedProject) || projects[0];
 
   return (
-    <section className="relative min-h-screen py-20 bg-gradient-to-br from-white via-purple-50/20 to-pink-50/30 text-gray-800 overflow-hidden">
+    <section id="portfolio" ref={sectionRef} className="relative min-h-screen py-20 bg-gradient-to-br from-white via-purple-50/20 to-pink-50/30 text-gray-800 overflow-hidden">
       {/* Background Effects */}
       <div className="pointer-events-none absolute top-20 right-10 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl" />
       <div className="pointer-events-none absolute bottom-20 left-10 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl" />
       <div className="pointer-events-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-200/10 rounded-full blur-3xl" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
+        <div className="projects-heading text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-accent)] mb-4">
             {t("projects.title")}
           </h2>
@@ -115,29 +171,29 @@ export default function ProjectsSection() {
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project.id)}
-                className={`cursor-pointer bg-white shadow-lg border rounded-xl p-4 transition-all duration-300 hover:shadow-xl ${
-                  selectedProject === project.id 
-                    ? 'border-cyan-400/50 shadow-cyan-100' 
+                className={`project-list-item min-h-[132px] cursor-pointer bg-white shadow-lg border rounded-xl p-4 transition-all duration-300 hover:shadow-xl ${
+                  selectedProject === project.id
+                    ? 'border-cyan-400/50 shadow-cyan-100'
                     : 'border-gray-200 hover:border-cyan-400/30'
                 }`}
               >
                 <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center font-bold transition-colors duration-300 ${
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center font-bold transition-colors duration-300 shrink-0 ${
                     selectedProject === project.id
                       ? 'bg-cyan-500/20 text-cyan-600'
                       : 'bg-gray-100 text-gray-600'
                   }`}>
                     {project.id}
                   </div>
-                  <div className="flex-1">
-                    <h3 className={`font-semibold transition-colors duration-300 ${
+                  <div className="flex-1 min-w-0">
+                    <h3 className={`font-semibold transition-colors duration-300 line-clamp-2 ${
                       selectedProject === project.id
                         ? 'text-cyan-600'
                         : 'text-gray-800'
                     }`}>
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-600 text-sm line-clamp-2 mt-1">
                       {project.description.substring(0, 80)}...
                     </p>
                   </div>
@@ -146,7 +202,7 @@ export default function ProjectsSection() {
             ))}
           </div>
 
-          <div className="lg:w-[70%] bg-white shadow-lg border border-gray-200 rounded-2xl p-8">
+          <div ref={detailRef} className="lg:w-[70%] bg-white shadow-lg border border-gray-200 rounded-2xl p-8">
             <div className="space-y-6">
               <div className="border-b border-gray-200 pb-6">
                 <h2 className="text-3xl font-bold text-gray-800 mb-2">
@@ -180,7 +236,7 @@ export default function ProjectsSection() {
                               alt={`${currentProject.title} - Slide ${index + 1}`}
                               fill
                               sizes="(max-width: 768px) 100vw, 70vw"
-                              className={index === 0 ? "object-cover" : "object-contain"}
+                              className="object-cover"
                             />
                           </div>
                         </SwiperSlide>

@@ -87,6 +87,42 @@ export default function ProjectsSection() {
         t("projects.items.mula.features.0"),
         t("projects.items.mula.features.1")
       ]
+    },
+    {
+      id: 6,
+      title: t("projects.items.crystalBlueSpace.title"),
+      description: t("projects.items.crystalBlueSpace.description"),
+      image: "/default.jpg",
+      technologies: ["TypeScript", "Bun", "Hono", "Prisma", "MongoDB", "LINE Messaging API"],
+      features: [
+        t("projects.items.crystalBlueSpace.features.0"),
+        t("projects.items.crystalBlueSpace.features.1"),
+        t("projects.items.crystalBlueSpace.features.2"),
+        t("projects.items.crystalBlueSpace.features.3")
+      ]
+    },
+    {
+      id: 7,
+      title: t("projects.items.sustaina.title"),
+      description: t("projects.items.sustaina.description"),
+      image: "/default.jpg",
+      technologies: ["Go", "Kafka", "Redis", "JWT", "Multi-tenant RBAC"],
+      features: [
+        t("projects.items.sustaina.features.0"),
+        t("projects.items.sustaina.features.1"),
+        t("projects.items.sustaina.features.2")
+      ]
+    },
+    {
+      id: 8,
+      title: t("projects.items.sxExpo.title"),
+      description: t("projects.items.sxExpo.description"),
+      image: "/default.jpg",
+      technologies: ["Go", "Gin", "RESTful APIs", "Caching"],
+      features: [
+        t("projects.items.sxExpo.features.0"),
+        t("projects.items.sxExpo.features.1")
+      ]
     }
   ], [t]);
 

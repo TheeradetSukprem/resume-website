@@ -4,28 +4,26 @@ import { useRef } from "react";
 import {
   SiReact,
   SiNextdotjs,
-  SiVuedotjs,
+  SiNuxtdotjs,
   SiTailwindcss,
+  SiBootstrap,
   SiJavascript,
   SiTypescript,
   SiNodedotjs,
+  SiBun,
   SiExpress,
-  SiFastify,
+  SiHono,
   SiPython,
   SiGo,
   SiApachekafka,
-  SiZod,
-  SiPino,
-  SiJest,
+  SiRedis,
+  SiLine,
+  SiSwagger,
   SiDocker,
   SiMysql,
-  SiMariadb,
   SiPostgresql,
-  SiSqlite,
   SiMongodb,
-  SiRedis,
-  SiPrisma,
-  SiClickhouse
+  SiPrisma
 } from "react-icons/si";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -88,8 +86,8 @@ export default function TechStackSection() {
                     <span className="text-gray-800 font-medium">Next.js</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <SiVuedotjs className="text-2xl text-[#4FC08D]" />
-                    <span className="text-gray-800 font-medium">Vue.js v2/v3</span>
+                    <SiNuxtdotjs className="text-2xl text-[#00DC82]" />
+                    <span className="text-gray-800 font-medium">Nuxt.js</span>
                   </div>
                 </div>
               </div>
@@ -97,9 +95,15 @@ export default function TechStackSection() {
               {/* Styling */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Styling</h4>
-                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <SiTailwindcss className="text-2xl text-[#06B6D4]" />
-                  <span className="text-gray-800 font-medium">Tailwind CSS</span>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiTailwindcss className="text-2xl text-[#06B6D4]" />
+                    <span className="text-gray-800 font-medium">Tailwind CSS</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiBootstrap className="text-2xl text-[#7952B3]" />
+                    <span className="text-gray-800 font-medium">Bootstrap</span>
+                  </div>
                 </div>
               </div>
 
@@ -134,9 +138,15 @@ export default function TechStackSection() {
               {/* Runtime */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Runtime</h4>
-                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <SiNodedotjs className="text-2xl text-[#339933]" />
-                  <span className="text-gray-800 font-medium">Node.js</span>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiNodedotjs className="text-2xl text-[#339933]" />
+                    <span className="text-gray-800 font-medium">Node.js</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiBun className="text-2xl text-[#000000]" />
+                    <span className="text-gray-800 font-medium">Bun</span>
+                  </div>
                 </div>
               </div>
 
@@ -149,8 +159,8 @@ export default function TechStackSection() {
                     <span className="text-gray-800 font-medium">Express.js</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <SiFastify className="text-2xl text-[#000000]" />
-                    <span className="text-gray-800 font-medium">Fastify</span>
+                    <SiHono className="text-2xl text-[#E36002]" />
+                    <span className="text-gray-800 font-medium">Hono</span>
                   </div>
                 </div>
               </div>
@@ -165,17 +175,32 @@ export default function TechStackSection() {
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                     <SiGo className="text-2xl text-[#00ADD8]" />
-                    <span className="text-gray-800 font-medium">Go</span>
+                    <span className="text-gray-800 font-medium">Go (Gin)</span>
                   </div>
                 </div>
               </div>
 
-              {/* Messaging */}
+              {/* Messaging & Cache */}
               <div>
-                <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Messaging</h4>
+                <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Messaging & Cache</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiApachekafka className="text-2xl text-[#231F20]" />
+                    <span className="text-gray-800 font-medium">Kafka (KafkaJS)</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiRedis className="text-2xl text-[#DC382D]" />
+                    <span className="text-gray-800 font-medium">Redis</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Integration */}
+              <div>
+                <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Integration</h4>
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <SiApachekafka className="text-2xl text-[#231F20]" />
-                  <span className="text-gray-800 font-medium">Kafka (KafkaJS)</span>
+                  <SiLine className="text-2xl text-[#06C755]" />
+                  <span className="text-gray-800 font-medium">LINE Messaging API</span>
                 </div>
               </div>
 
@@ -184,16 +209,8 @@ export default function TechStackSection() {
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Tooling</h4>
                 <div className="space-y-2">
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <SiZod className="text-2xl text-[#3E67B1]" />
-                    <span className="text-gray-800 font-medium">Zod</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <SiPino className="text-2xl text-[#000000]" />
-                    <span className="text-gray-800 font-medium">Pino</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <SiJest className="text-2xl text-[#C21325]" />
-                    <span className="text-gray-800 font-medium">Jest</span>
+                    <SiSwagger className="text-2xl text-[#85EA2D]" />
+                    <span className="text-gray-800 font-medium">Swagger / OpenAPI</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                     <SiDocker className="text-2xl text-[#2496ED]" />
@@ -224,16 +241,8 @@ export default function TechStackSection() {
                     <span className="text-gray-800 font-medium">MySQL</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <SiMariadb className="text-2xl text-[#003545]" />
-                    <span className="text-gray-800 font-medium">MariaDB</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                     <SiPostgresql className="text-2xl text-[#4169E1]" />
                     <span className="text-gray-800 font-medium">PostgreSQL</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <SiSqlite className="text-2xl text-[#003B57]" />
-                    <span className="text-gray-800 font-medium">SQLite</span>
                   </div>
                 </div>
               </div>
@@ -241,33 +250,24 @@ export default function TechStackSection() {
               {/* NoSQL */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">NoSQL</h4>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <SiMongodb className="text-2xl text-[#47A248]" />
-                    <span className="text-gray-800 font-medium">MongoDB</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                    <SiRedis className="text-2xl text-[#DC382D]" />
-                    <span className="text-gray-800 font-medium">Redis</span>
-                  </div>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <SiMongodb className="text-2xl text-[#47A248]" />
+                  <span className="text-gray-800 font-medium">MongoDB</span>
                 </div>
               </div>
 
               {/* ORM */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">ORM</h4>
-                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <SiPrisma className="text-2xl text-[#2D3748]" />
-                  <span className="text-gray-800 font-medium">Prisma</span>
-                </div>
-              </div>
-
-              {/* Analytics */}
-              <div>
-                <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Analytics</h4>
-                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  <SiClickhouse className="text-2xl text-[#FFCC01]" />
-                  <span className="text-gray-800 font-medium">ClickHouse</span>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <SiPrisma className="text-2xl text-[#2D3748]" />
+                    <span className="text-gray-800 font-medium">Prisma</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <span className="flex items-center justify-center w-6 h-6 rounded bg-[#00ADD8] text-white text-[10px] font-bold shrink-0">Go</span>
+                    <span className="text-gray-800 font-medium">GORM</span>
+                  </div>
                 </div>
               </div>
             </div>

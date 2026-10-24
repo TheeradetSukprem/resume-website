@@ -6,7 +6,7 @@
   "hero": {
     "greeting": "Hello, my name is",
     "title": "Full Stack Developer",
-    "description": "\"Hi, I'm Gang. I turn complex problems into simple, scalable code. As a Full Stack Developer, I specialize in modern web technologies (Go, TypeScript, React) and bridge the gap between development and data insights.\n\nI value structured code and high-quality results. My long-term goal is to specialize in System Architecture, designing platforms that balance performance with practical execution.\"",
+    "description": "\"Hi, I'm Gang. I turn complex problems into simple, scalable code. As a Full Stack Developer, I specialize in modern web technologies (Golang, Nuxt.js, React) and Data Analytics, with proven experience building scalable enterprise solutions ranging from Port Management Systems to Order Management dashboards.\n\nI value structured code and high-quality results. My long-term goal is to specialize in System Architecture, optimizing database performance and designing platforms that balance performance with practical execution.\"",
     "followMe": "Follow me",
     "downloadCV": "Download CV",
     "downloadResume": "Download Resume"
@@ -84,6 +84,33 @@
         "features": [
           "Manage course schedules and grades of students",
           "Manage teacher and course information"
+        ]
+      },
+      "crystalBlueSpace": {
+        "title": "Crystal Blue Space (LINE OA Platform)",
+        "description": "A TypeScript backend (Bun, Hono, Prisma, MongoDB) powering a LINE Official Account loyalty and campaign platform, from rich menu targeting to resilient background workers.",
+        "features": [
+          "Built an internal API linking LINE rich menus to selected users or every follower, with an audit trail and a background job with progress tracking for large requests.",
+          "Designed a resilient job worker with lease-based locking, cursor-based resume after restart, and exponential backoff on 429/5xx errors during rolling deploys.",
+          "Moved rich menu selection into a cached MongoDB settings collection, enabling config-free campaign rollout without redeploys.",
+          "Synced follower state from LINE webhooks so bulk updates only reach users who still follow the account."
+        ]
+      },
+      "sustaina": {
+        "title": "Sustaina Site Management System (ESG Platform)",
+        "description": "Backend services and APIs for a sustainability (ESG) tracking and reporting platform, covering authentication security, event-driven data sync, and data import/export.",
+        "features": [
+          "Built refresh-token rotation with reuse detection, session revocation, a Redis-backed rate limiter, and a cleanup worker for expired tokens.",
+          "Built a Kafka consumer syncing questionnaire revisions and unit changes across microservices without data loss.",
+          "Owned the XLSX import/export pipeline and enforced tenant- and role-based authorization on data-entry routes."
+        ]
+      },
+      "sxExpo": {
+        "title": "SX Expo Platform",
+        "description": "A Go (Gin) backend for the Sustainability Expo mobile app and admin console, focused on loyalty points integration, performance, and observability.",
+        "features": [
+          "Upgraded the third-party loyalty points API integration with unified error handling, idempotency keys, and an atomic account upsert to prevent race conditions.",
+          "Sped up the admin points lookup with parallel calls and caching, and added request logging that masks sensitive fields."
         ]
       }
     }
